@@ -1,7 +1,3 @@
-/**
- * Created by plter on 14-3-5.
- */
-
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
