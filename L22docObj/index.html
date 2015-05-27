@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <!--决不在文档加载完后使用  document.write(），会覆盖该文档内容-->
+     <p>你好！</p>
+     <p>你好！</p>
+     <p>你好！</p>
+     <p>你好！</p>
+     <p>你好！</p>
+     <button onclick="demo()">使用document.write()</button>
+     <script>
+         function demo(){
+         document.write("hello");
+         }
+     </script>
+
+   <!--//////////////////--------分割线-------/////////////////////-->
+
+   <a href="www.google.com" id="aid">链接</a>
+   <button onclick="changeAttirbute()">btn</button>
+<script>
+    function changeAttirbute(){
+        document.getElementById(aid).href="www.baidu.com";
+    }
+</script>
+
+   <!--//////////////////--------分割线-------/////////////////////-->
+
+   <div id="div" class="div"></div>
+   <button onclick="changeCss()" >改变css样式</button>
+  <script>
+      function changeCss(){
+          document.getElementById("div").style.backgroundColor="blue";
+      }
+
+  </script>
+
+   <!--//////////////////--------分割线-------/////////////////////-->
+   <!--通过对元素添加事件句柄，对事件进行监听，需考虑浏览器兼容性-->
+   <button id="btn">按钮</button>
+ <script>
+     var x= document.getElementById("btn");
+     //添加句柄
+     x.addEventListener("click",hello);
+     x.addEventListener("click",world);
+     //移除句柄
+     x.removeEventListener("click",world);
+     function hello(){
+         alert("hello");
+     }
+
+     function world(){
+         alert("world");
+     }
+
+//     document.getElementById("btn").addEventListener("click",function(){
+//         alert("hello")
+//     });
+
+ </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <p name="pn">hello</p>
+    <p name="pn">hello</p>
+    <p name="pn">hello</p>
+    <p name="pn">hello</p>
+    <a id="aid" title="恭喜你，得到a标签属性"></a>
+    <a id="aid2" >aid2</a>
+
+    <ul><li>1</li><li>2</li><li>3</li></ul>
+
+
+    <p id="p1">这是一个段落。</p>
+    <p id="p2">这是另一个段落。</p>
+</div>
+
+<div id="div">
+    <p id="pid">div中的p元素</p>
+</div>
+<script>
+    function getName(){
+        var count = document.getElementsByName("pn");
+        var p= count[2];
+        p.innerHTML = "wwk";
+    }
+// getName();
+    function getAttr(){
+        var anode=document.getElementById("aid");
+        var attr = anode.getAttribute("title");
+        alert(attr);
+    }
+//    setAttr();
+    function setAttr(){
+        var anode=document.getElementById("aid");
+        anode.setAttribute("title","动态设置a的title属性");
+        var attr = anode.getAttribute("title");
+        alert(attr);
+    }
+//    getAttr();
+     function getChildNode(){
+         var childNode= document.getElementsByTagName("ul")[0].childNodes;
+         alert(childNode.length);
+         alert(childNode[0].nodeType);
+     }
+//    getChildNode();
+
+    function getParentNode(){
+        var pid= document.getElementsByTagName("pid");
+        alert(pid.parentNode.nodeName);
+    }
+//    getParentNode();
+     function createNode(){
+         var  body = document.body;
+         var input = document.createElement("input");
+         input.type = "button";
+         input.value = "按钮";
+         body.appendChild(input);//往末尾添加节点
+     }
+//    createNode();
+
+    function addNode(){
+        var  div = document.getElementById("div");
+        var node = document.getElementById("pid");
+        var newNode = document.createElement("p");
+        newNode.innerHTML = "动态添加第一个p元素"
+        div.insertBefore(newNode,node);
+    }
+//    addNode();
+
+    function removeNode(){
+        var  div = document.getElementById("div");
+        div.removeChild(div.childNodes[1]);
+    }
+//    removeNode();
+    function getSize(){
+
+        var width=document.body.offsetWidth||document.documentElement.offsetWidth;
+        var height=document.body.offsetHeight||document.documentElement.offsetHeight;
+        alert(width+","+height);
+    }
+    getSize();
+</script>
+
+
+
+<!--添加新的节点-->
+<script>
+    var para=document.createElement("p");//创建一个标签p节点名为para
+    var node=document.createTextNode("这是新段落。");//定义节点元素的内容
+    para.appendChild(node);//将元素和内容联系起来
+
+    var element=document.getElementById("div1");//找到节点为div1的节点
+    element.appendChild(para);//向节点div1中添加新节点para
+</script>
+<!--删除某个节点元素-->
+<script>
+    var parent=document.getElementById("div1");
+    var child=document.getElementById("p1");
+    parent.removeChild(child);//删除父节点中的子节点child
+</script>
+</body>
+</html>

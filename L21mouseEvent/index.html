@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload="mgs()">
+     <div class="div" onmouseout="onOut(this)" onmouseover="onOver(this)"></div>
+      <script>
+          function onOver(obj){
+              obj.innerHTML="hello";
+          }
+          function onOut(obj){
+              obj.innerHTML = "World";
+          }
+      </script>
+<form>
+    <input type="text" id="txt" onmouseover="onTxtover(this)" onmouseout="onTxtout(this)" onchange="changeDemo(this)" onfocus="onFocus(this)" onblur="onBlur(this)" onselect="onSelect(this)" >
+    <p id="msg"></p>
+     <script>
+         function changeDemo(bg){
+             var e= document.getElementById("txt").value;
+             if(e==""){
+                 showMsg('文本框内容改变!');
+             }
+         }
+         function onTxtout(obj){
+             var e= document.getElementById("txt").value;
+             if(e==""){
+                 showMsg('鼠标移除!');
+                 //obj.style.backgroundColor="red";
+             }
+           }
+         function onTxtover(obj){
+             var e= document.getElementById("txt").value;
+             if(e==""){
+                 showMsg('鼠标经过!');
+                 //obj.style.backgroundColor="red";
+             }
+         }
+         function onFocus(obj){
+                //obj.style.backgroundColor="blue";
+                showMsg('光标聚集!');
+         }
+         function onBlur(obj){
+             //obj.style.backgroundColor="white";
+             showMsg('移开光标!');
+         }
+
+         function onSelect(obj){
+             showMsg('文本框选中!');
+         }
+
+         function showMsg(msg){
+             document.getElementById("msg").innerHTML = msg;
+         }
+        //页面加载时执行
+         function mgs(){
+             showMsg("页面加载完成");
+         }
+
+     </script>
+</form>
+</body>
+</html>

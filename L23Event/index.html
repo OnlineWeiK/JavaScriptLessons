@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <div id="div">
+       <button id="btn1">按钮1</button>
+       <button id="btn2">按钮2</button>
+       <a href="http://www.baidu.com" id="aid">点击</a>
+   </div>
+   <!--DOM 0级事件-->
+
+ <!--<script>-->
+     <!--var btn1= document.getElementById("btn1");-->
+     <!--btn1.onclick = function(){alert("hello DOM0级事件处理1")};//事件被覆盖-->
+     <!--btn1.onclick = function(){alert("hello DOM0级事件处理2")};-->
+     <!--btn1.onclick =null;     -->
+ <!--</script>-->
+
+   <!--DOM2级事件-->
+  <!--<script>-->
+      <!--var btn1=document.getElementById("btn1");-->
+      <!--btn1.addEventListener("click",demo1);-->
+      <!--btn1.addEventListener("click",demo2);-->
+      <!--btn1.addEventListener("click",demo3);-->
+      <!--function demo1(){-->
+          <!--alert("hello DOM2级事件处理1");-->
+      <!--}-->
+      <!--function demo2(){-->
+          <!--alert("hello DOM2级事件处理2");-->
+      <!--}-->
+      <!--function demo3(){-->
+          <!--alert("hello DOM2级事件处理3");-->
+      <!--}-->
+  <!--</script>-->
+
+   <!--多浏览器支持-->
+<!--<script>-->
+    <!--var btn1=document.getElementById("btn1");-->
+    <!--if(btn1.addEventListener){ //Chrome等主流浏览器-->
+        <!--btn1.addEventListener("click",demo);-->
+    <!--}else if(btn1.attachEvent()){//IE8以下-->
+        <!--btn1.attachEvent("click",demo);-->
+    <!--}else{//other-->
+        <!--btn1.onclick = demo();-->
+    <!--}-->
+
+    <!--function demo(){-->
+        <!--alert("Hello");-->
+    <!--}-->
+<!--</script>-->
+
+ <!--事件对象-->
+   <script>
+       document.getElementById("btn1").addEventListener("click",showType);
+       document.getElementById("btn2").addEventListener("mouseover",showType);
+       document.getElementById("div").addEventListener("click",showDiv);
+       document.getElementById("aid").addEventListener("click",showA);
+
+       function showType(event){
+//           alert(event.type);
+           alert(event.target);
+           event.stopPropagation();//阻止事件冒泡
+       }
+       function showDiv(){
+           alert("div");
+       }
+       function showA(event){
+           event.stopPropagation();
+           event.preventDefault();
+       }
+   </script>
+</body>
+</html>
