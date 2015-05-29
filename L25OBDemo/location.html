@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn" onclick="getLoc()">按钮</button>
+<p id="pid"></p>
+  <script>
+      function getLoc(){
+          document.getElementById("pid").innerHTML = window.location.host;
+//          location.assign("https://www.baidu.com");
+//          protocol:	协议	"http:"
+//          hostname:	服务器的名字	"b.a.com"
+//          port:	端口	"88"
+//          pathname:	URL中主机名后的部分	"/index.php"
+//          search:	"?"后的部分，又称为查询字符串	"?name=kang&when=2011"
+//          hash:	返回"#"之后的内容	"#first"
+//          host:	等于hostname + port	"b.a.com:88"
+//          href:	当前页面的完整URL	"http://www.a.com:88/index.php?name=kang&when=2011#first"
+      }
+
+  </script>
+
+</body>
+</html>
